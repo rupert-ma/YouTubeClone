@@ -5,4 +5,5 @@ from . import views
 urlpatterns = [
     path('', views.Allow_Any.as_view()),
     path('post/', views.Protected_View.as_view()),
+    path('post/<int:pk>', views.Protected_View.as_view()),
     ]  

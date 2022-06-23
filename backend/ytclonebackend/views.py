@@ -33,6 +33,11 @@ class Allow_Any(APIView):
 
 class Protected_View(APIView):
     permission_classes = [IsAuthenticated]
+    def get_object(self, pk):
+        try:
+            return Comment.objects.get(pk=pk)
+        except Comment.DoesNotExist:
+            raise Http404
 
     def post(self, request):
         print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
@@ -40,5 +45,12 @@ class Protected_View(APIView):
         serializer.is_valid(raise_exception=True)
         serializer.save(user=request.user)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def put(self, request, pk):
+        comment = self.get_object(pk)
+        serializer = CommentSerializer(comment, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 
