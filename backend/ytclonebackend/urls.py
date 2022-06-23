@@ -4,5 +4,5 @@ from . import views
 
 urlpatterns = [
     path('', views.Comment_List.as_view()),
-    # path('all/', views.Supers_Detail.as_view()),
+    path('all/', views.Comment_Detail.as_view()),
     ]  
