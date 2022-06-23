@@ -13,3 +13,5 @@ from .serializers import CommentSerializer, ReplySerializer
 class Comment_List(APIView):
     def get(self, request):
         comments = Comment.objects.all()
+        serializer = CommentSerializer(comments, many = True)
+        return Response(serializer.data, status = status.HTTP_200_OK)
