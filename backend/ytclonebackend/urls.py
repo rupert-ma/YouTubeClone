@@ -3,6 +3,6 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    path('', views.Comment_List.as_view()),
-    path('all/', views.Comment_Detail.as_view()),
+    path('', views.Allow_Any.as_view()),
+    path('post/', views.Protected_View.as_view()),
     ]  

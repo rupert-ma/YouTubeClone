@@ -6,17 +6,17 @@ from rest_framework import status
 from rest_framework.views import APIView
 from .models import Comment, Reply
 from .serializers import CommentSerializer, ReplySerializer
+from rest_framework.permissions import IsAuthenticated
+
 
 # Create your views here.
 
-
-class Comment_List(APIView):
-    def get(self, request):
-        comments = Comment.objects.all()
-        serializer = CommentSerializer(comments, many = True)
-        return Response(serializer.data, status = status.HTTP_200_OK)
-
-class Comment_Detail(APIView):
+class Allow_Any(APIView):
+    # def get(self, request):
+    #     comments = Comment.objects.all()
+    #     serializer = CommentSerializer(comments, many = True)
+    #     return Response(serializer.data, status = status.HTTP_200_OK)
+    
     def get_object(self, pk):
         try:
             return Comment.objects.get(pk=pk)
@@ -31,4 +31,14 @@ class Comment_Detail(APIView):
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    
+class Protected_View(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
+        serializer = CommentSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user=request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+
