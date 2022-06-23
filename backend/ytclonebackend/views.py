@@ -26,7 +26,6 @@ class Allow_Any(APIView):
     def get(self, request):
         comments = Comment.objects.all()
         vid_id_param = request.query_params.get('video_id')
-        print(vid_id_param)
         comment = comments.filter(video_id=vid_id_param)
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
@@ -47,10 +46,20 @@ class Protected_View(APIView):
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def put(self, request, pk):
+        print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
         comment = self.get_object(pk)
         serializer = CommentSerializer(comment, data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save(user=request.user)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def get(self, request, pk):
+        print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
+        comments = Reply.objects.all()
+        replies = comments.filter(comment=pk)
+        serializer = ReplySerializer(replies, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+################This technically works but also returns all the user data, need to solve for this.
+
 
 
