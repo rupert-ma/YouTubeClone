@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "d4409d57-7119-4339-bfae-1f3a18bc6341",
+		"_postman_id": "4df02964-5cb8-4168-b651-a82859627e29",
 		"name": "DRF_JWT_Backend",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5414947"
 	},
 	"item": [
 		{
@@ -217,6 +218,228 @@
 								"api",
 								"cars",
 								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "YTcloneBackend",
+			"item": [
+				{
+					"name": "Get All Comments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comments by Video ID",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Comment (Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"video_id\": \"aaaafd\",\r\n        \"text\": \"some text here\",\r\n        \"likes\": 1,\r\n        \"dislikes\": 1,\r\n        \"user_id\": 1\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/post/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								"post",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\":\"user1\",\r\n    \"password\":\"User_Pass\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/auth/login/",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"auth",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Post(Protected)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"video_id\": \"aaaafd\",\r\n        \"text\": \"some new new new text here\",\r\n        \"likes\": 1,\r\n        \"dislikes\": 1,\r\n        \"user_id\": 2\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/post/4",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								"post",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all replies by Comment ID(Protected)",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/reply/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								"reply",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post New Reply(Protected)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2OTU0MDM3LCJpYXQiOjE2NTYwOTAwMzcsImp0aSI6IjVjOTJmYTIxZjAzOTRjYzM4YjRlYTAxYWQzM2EwMTk3IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJ1c2VyMiIsImZpcnN0X25hbWUiOiIifQ.wbuCgclLI9fpntRP-Dk-RWexRZ2wEXyeVlA6SegzsAs",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"text\": \"rertertrertet\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/reply/1",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								"reply",
+								"1"
 							]
 						}
 					},
