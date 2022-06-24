@@ -152,7 +152,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU2ODM5LCJpYXQiOjE2NDcyOTI4MzksImp0aSI6ImJjYzJhZTUzOTRlYzQ3OThiNjI0YTcwYTYzYjcxOThmIiwidXNlcl9pZCI6MSwidXNlcm5hbWUiOiJqanZlZ2EiLCJmaXJzdF9uYW1lIjoiIn0.l9ATW5CpWF2TGniqVgU1I-a8LkuqgLQ4ok3tJh6asAA",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -191,7 +191,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjQ4MTU3MjczLCJpYXQiOjE2NDcyOTMyNzMsImp0aSI6IjIyMDQ4YTg2NzEzMTQyMmZhZjJmNDNmYmI2MTExZDg2IiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJkYW50aGVtYW4iLCJmaXJzdF9uYW1lIjoiRGFuaWVsIn0.DeTe47E7-9eCr7xKE22m3CvFMDj0Sxye5A6ndwJ024M",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -283,7 +283,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODgyNDQ0LCJpYXQiOjE2NTYwMTg0NDQsImp0aSI6IjUyYTEyNzExMDMwYTQ2Njg4NjVlMzU2OTcxNmYyZDZmIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJ1c2VyMiIsImZpcnN0X25hbWUiOiIifQ.bNDCzfDOxDChfCJOa21pKOkNyidoPpht_JIIWzXoYUM",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -357,7 +357,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -397,7 +397,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"value": "",
 								"type": "text"
 							}
 						],
@@ -428,7 +428,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2OTU0MDM3LCJpYXQiOjE2NTYwOTAwMzcsImp0aSI6IjVjOTJmYTIxZjAzOTRjYzM4YjRlYTAxYWQzM2EwMTk3IiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJ1c2VyMiIsImZpcnN0X25hbWUiOiIifQ.wbuCgclLI9fpntRP-Dk-RWexRZ2wEXyeVlA6SegzsAs",
+								"value": "",
 								"type": "text"
 							}
 						],
