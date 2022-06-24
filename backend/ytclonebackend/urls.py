@@ -3,7 +3,9 @@ from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
 
 urlpatterns = [
-    path('', views.Allow_Any.as_view()),
-    path('post/', views.Protected_View.as_view()),
-    path('post/<int:pk>', views.Protected_View.as_view()),
+    path('', views.Comments_Unprotected.as_view()),
+    path('post/', views.Comments_Protected.as_view()),
+    path('post/<int:pk>', views.Comments_Protected.as_view()),
+    path('reply/', views.Reply_Protected.as_view()),
+    path('reply/<int:pk>', views.Reply_Protected.as_view())
     ]  

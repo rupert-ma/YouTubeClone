@@ -1,3 +1,4 @@
+from re import T
 from django.shortcuts import render
 from django.http import Http404
 from rest_framework.decorators import api_view
@@ -11,7 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 
 # Create your views here.
 
-class Allow_Any(APIView):
+class Comments_Unprotected(APIView):
     # def get(self, request):
     #     comments = Comment.objects.all()
     #     serializer = CommentSerializer(comments, many = True)
@@ -30,7 +31,7 @@ class Allow_Any(APIView):
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-class Protected_View(APIView):
+class Comments_Protected(APIView):
     permission_classes = [IsAuthenticated]
     def get_object(self, pk):
         try:
@@ -59,7 +60,29 @@ class Protected_View(APIView):
         replies = comments.filter(comment=pk)
         serializer = ReplySerializer(replies, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-################This technically works but also returns all the user data, need to solve for this.
+
+
+class Reply_Protected(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request, pk):
+        print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
+        
+        comments = Reply.objects.all()
+        replies = comments.filter(comment=pk)
+        serializer = ReplySerializer(replies, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def post(self, request, pk):
+        print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
+        # text = request.data["text"]
+        # print(text)
+        reply = {"user":request.user.id, "comment":pk, "text":request.data["text"]}
+        serializer = ReplySerializer(data=reply)
+        serializer.is_valid(raise_exception=True)
+        serializer.save(user = request.user)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
 
 
 
