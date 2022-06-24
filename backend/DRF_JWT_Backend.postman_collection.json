@@ -256,7 +256,23 @@
 					"name": "Get Comments by Video ID",
 					"request": {
 						"method": "GET",
-						"header": []
+						"header": [],
+						"url": {
+							"raw": "http://127.0.0.1:8000/api/ytclone/aaaafd",
+							"protocol": "http",
+							"host": [
+								"127",
+								"0",
+								"0",
+								"1"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"ytclone",
+								"aaaafd"
+							]
+						}
 					},
 					"response": []
 				},
@@ -267,13 +283,13 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODc5MzExLCJpYXQiOjE2NTYwMTUzMTEsImp0aSI6Ijg4N2U2YjZjMmY5MTQ3YzBiZmNjZTgyNGJlNjc3YWExIiwidXNlcl9pZCI6MiwidXNlcm5hbWUiOiJ1c2VyMSIsImZpcnN0X25hbWUiOiIifQ.k_qh_0wzHSgonZbjXvItdpS2dtpYOHmephTueaAlseU",
+								"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU2ODgyNDQ0LCJpYXQiOjE2NTYwMTg0NDQsImp0aSI6IjUyYTEyNzExMDMwYTQ2Njg4NjVlMzU2OTcxNmYyZDZmIiwidXNlcl9pZCI6MywidXNlcm5hbWUiOiJ1c2VyMiIsImZpcnN0X25hbWUiOiIifQ.bNDCzfDOxDChfCJOa21pKOkNyidoPpht_JIIWzXoYUM",
 								"type": "text"
 							}
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n        \"video_id\": \"aaaafd\",\r\n        \"text\": \"some text here\",\r\n        \"likes\": 1,\r\n        \"dislikes\": 1,\r\n        \"user_id\": 1\r\n    }",
+							"raw": "{\r\n        \"video_id\": \"aaaafd\",\r\n        \"text\": \"some text here\",\r\n        \"likes\": 1,\r\n        \"dislikes\": 1\r\n    }",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -307,7 +323,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"username\":\"user1\",\r\n    \"password\":\"User_Pass\"\r\n}",
+							"raw": "{\r\n    \"username\":\"user2\",\r\n    \"password\":\"User_Pass\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"

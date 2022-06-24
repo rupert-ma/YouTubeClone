@@ -27,7 +27,6 @@ class Comments_Unprotected(APIView):
 
     def get(self, request, video_id):
         comments = Comment.objects.all()
-        # vid_id_param = request.query_params.get('video_id')
         comment = comments.filter(video_id=video_id)
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
