@@ -10,13 +10,7 @@ from .serializers import CommentSerializer, ReplySerializer
 from rest_framework.permissions import IsAuthenticated
 
 
-# Create your views here.
-
-class Comments_Unprotected(APIView):
-    # def get(self, request):
-    #     comments = Comment.objects.all()
-    #     serializer = CommentSerializer(comments, many = True)
-    #     return Response(serializer.data, status = status.HTTP_200_OK)
+class Comments_Unprotected(APIView): 
     
     def get_object(self, pk):
         try:
@@ -24,10 +18,17 @@ class Comments_Unprotected(APIView):
         except Comment.DoesNotExist:
             raise Http404
     
-    def get(self, request):
+    # def get(self, request):
+    #     comments = Comment.objects.all()
+    #     vid_id_param = request.query_params.get('video_id')
+    #     comment = comments.filter(video_id=vid_id_param)
+    #     serializer = CommentSerializer(comment, many = True)
+    #     return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def get(self, request, video_id):
         comments = Comment.objects.all()
-        vid_id_param = request.query_params.get('video_id')
-        comment = comments.filter(video_id=vid_id_param)
+        # vid_id_param = request.query_params.get('video_id')
+        comment = comments.filter(video_id=video_id)
         serializer = CommentSerializer(comment, many = True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -75,8 +76,6 @@ class Reply_Protected(APIView):
 
     def post(self, request, pk):
         print('User ', f"{request.user.id} {request.user.email} {request.user.username}")
-        # text = request.data["text"]
-        # print(text)
         reply = {"user":request.user.id, "comment":pk, "text":request.data["text"]}
         serializer = ReplySerializer(data=reply)
         serializer.is_valid(raise_exception=True)
