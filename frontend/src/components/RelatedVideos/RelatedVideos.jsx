@@ -1,30 +1,25 @@
-import React, { Component } from "react";
-import { useEffect, useState } from "react";
-import useAuth from "../../hooks/useAuth";
-import VideoPage from "../../pages/VideoPage/VideoPage";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import SearchBar from "../../components/SearchBar/SearchBar";
-import { Routes, Route, useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { googleAPIKeyB } from "../../keys";
 
-const HomePage = () => {
-    const [user, token] = useAuth();
-    const [videoId, setVideoId] = useState();
-    const [searchTerm, setSearchTerm] = useState();
-    const [searchResults, setSearchResults] = useState([]);
-
+const RelatedVideos = ({ vidValue }) => {
+    const [relatedVideos, setRelatedVideos] = useState([]);
     let navigate = useNavigate();
 
-    async function searchForVid(searchTerm) {
+    useEffect(() => {
+        getRelatedVideos(vidValue);
+    }, [vidValue]);
+
+    async function getRelatedVideos(vidValue) {
+        console.log(vidValue);
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=${googleAPIKeyB}`
+                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyB}`
             );
-            setSearchResults(response.data.items);
-            console.log(searchResults);
+            setRelatedVideos(response.data.items);
         } catch (error) {
-            console.log("Error in searchForVid");
+            console.log("Error in getRelatedVideos");
         }
     }
 
@@ -36,12 +31,10 @@ const HomePage = () => {
 
     return (
         <div>
+            <div> Related videos sends to new video page</div>
             <div>
-                <SearchBar searchForVid={searchForVid} />
-            </div>
-            <div>
-                Search Results
-                {searchResults.map((result, index) => {
+                {relatedVideos.map((result, index) => {
+                    // console.log(result.id)
                     return (
                         <div key={index}>
                             <a
@@ -63,4 +56,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default RelatedVideos;

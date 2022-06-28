@@ -13,7 +13,6 @@ const VideoPlayer = ({ vidValue }) => {
                 frameBorder="0"
             ></iframe>
             <div>Description here: </div>
-            <div> Related videos sends to new video page</div>
         </div>
     );
 };
