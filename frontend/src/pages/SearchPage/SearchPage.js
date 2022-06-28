@@ -14,19 +14,17 @@ const HomePage = () => {
     async function searchForVid(searchTerm) {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=AIzaSyAgDzedvl5lQq0vzNO1bPdbuFo9KgjOOI4&type=video`
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=`
             );
-            // console.log(response);
-            // let tempNewResults = [searchResults, ...newSearchResults.data.items]
             setSearchResults(response.data.items);
             console.log(searchResults)
         } catch (error) {
             console.log("Error in searchForVid");
         }
-       
     }
 
     return (
+        
         <div>
             <div>
                 <SearchBar searchForVid={searchForVid} />
