@@ -4,6 +4,7 @@ import "./App.css";
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
+import SearchPage from "./pages/SearchPage/SearchPage";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 
@@ -22,9 +23,9 @@ function App() {
         <Route
           path="/"
           element={
-            <PrivateRoute>
-              <HomePage />
-            </PrivateRoute>
+            // <PrivateRoute>
+              <SearchPage />
+            //</PrivateRoute>
           }
         />
         <Route path="/register" element={<RegisterPage />} />
