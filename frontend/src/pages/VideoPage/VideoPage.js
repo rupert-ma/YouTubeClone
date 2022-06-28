@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 
 const VideoPage = () => {
     const { vidValue } = useParams();
-    console.log(vidValue);
+    // console.log(vidValue);
 
     return (
         <div>
