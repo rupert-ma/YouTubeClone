@@ -1,9 +1,29 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { googleAPIKeyB } from "../../keys";
 
 const VideoPlayer = ({ vidValue }) => {
+    let [videoData, setVideoData]=useState([])
+
+    useEffect(()=>{
+        searchForVid(vidValue)
+    }, [vidValue])
+
+    async function searchForVid(vidValue) {
+        try {
+            let response = await axios.get(
+                `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=1&type=video&id=${vidValue}&key=${googleAPIKeyB}`
+            );
+            setVideoData(response.data.items[0].snippet.description);
+        } catch (error) {
+            console.log(error.response.data);
+        }
+    }
+    console.log(videoData);
+    console.log(videoData);
+
     return (
         <div>
-            <h3>Hello From Video Player {vidValue}</h3>
             <iframe
                 id="ytplayer"
                 type="text/html"
@@ -12,7 +32,7 @@ const VideoPlayer = ({ vidValue }) => {
                 src={`https://www.youtube.com/embed/${vidValue}`}
                 frameBorder="0"
             ></iframe>
-            <div>Description here: </div>
+            <div>Description here:{videoData} </div>
         </div>
     );
 };
