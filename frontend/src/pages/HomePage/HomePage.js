@@ -10,15 +10,16 @@ const HomePage = () => {
     const [videoId, setVideoId] = useState();
     const [searchTerm, setSearchTerm] = useState();
 
-    async function searchForVid(searchTerm){
+    async function searchForVid(searchTerm) {
         try {
-            let response = await axios.get(`https://www.googleapis.com/youtube/v3/search?${searchTerm}&key=`)
-            console.log(response)
-            } catch (error) {
-                console.log(error.response.data);
-            }
+            let response = await axios.get(
+                `https://www.googleapis.com/youtube/v3/search?${searchTerm}&key=`
+            );
+            console.log(response);
+        } catch (error) {
+            console.log(error.response.data);
         }
-
+    }
 
     return (
         <div>
@@ -27,12 +28,12 @@ const HomePage = () => {
             </div>
             <div>
                 YT Vid
-                <iframe src={`https://www.youtube.com/embed/${searchTerm}`}> </iframe>
+                <iframe src={`https://www.youtube.com/embed/${searchTerm}`}>
+                    {" "}
+                </iframe>
             </div>
             <div> Recommended vids </div>
-            <div>
-                Comments Section
-            </div>
+            <div>Comments Section</div>
         </div>
     );
 };

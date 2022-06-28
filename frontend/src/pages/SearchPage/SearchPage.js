@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Component } from "react";
 import { useEffect, useState } from "react";
 import useAuth from "../../hooks/useAuth";
 import VideoPage from "../../pages/VideoPage/VideoPage";
@@ -6,6 +6,7 @@ import axios from "axios";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { googleAPIKeyB } from "../../keys";
 
 const HomePage = () => {
     const [user, token] = useAuth();
@@ -18,7 +19,7 @@ const HomePage = () => {
     async function searchForVid(searchTerm) {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=`
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=${googleAPIKeyB}`
             );
             setSearchResults(response.data.items);
             console.log(searchResults);
@@ -43,9 +44,6 @@ const HomePage = () => {
                 {searchResults.map((result, index) => {
                     // console.log(result.id)
                     return (
-                        // <iframe key={index}  id="ytplayer" type="text/html" width="640" height="360"
-                        //     src={`https://www.youtube.com/embed/${result.id.videoId}`} frameBorder="0"
-                        // ></iframe>
                         <div>
                             <a
                                 href={"#"}

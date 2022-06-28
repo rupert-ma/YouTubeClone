@@ -131,4 +131,4 @@ dist
 
 
 #API Keys
-.env
+src/keys.js
