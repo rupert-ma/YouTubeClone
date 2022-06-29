@@ -14,7 +14,7 @@ const VideoPlayer = ({ vidValue }) => {
             let response = await axios.get(
                 `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=1&type=video&id=${vidValue}&key=${googleAPIKeyB}`
             );
-            setVideoData(response.data.items[0].snippet.description);
+            setVideoData(response.data.items[0].snippet);
         } catch (error) {
             console.log(error.response.data);
         }
@@ -32,7 +32,8 @@ const VideoPlayer = ({ vidValue }) => {
                 src={`https://www.youtube.com/embed/${vidValue}`}
                 frameBorder="0"
             ></iframe>
-            <div>Description here:{videoData} </div>
+            <h3>Title: {videoData.title}</h3>
+            <div>Description:{videoData.description} </div>
         </div>
     );
 };
