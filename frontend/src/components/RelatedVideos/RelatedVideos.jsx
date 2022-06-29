@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { googleAPIKeyB } from "../../keys";
+import { googleAPIKeyA } from "../../keys";
 
 const RelatedVideos = ({ vidValue }) => {
     const [relatedVideos, setRelatedVideos] = useState([]);
@@ -15,7 +15,7 @@ const RelatedVideos = ({ vidValue }) => {
         // console.log(vidValue);
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyB}`
+                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyA}`
             );
             setRelatedVideos(response.data.items);
         } catch (error) {

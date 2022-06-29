@@ -6,6 +6,7 @@ urlpatterns = [
     path('<str:video_id>', views.Comments_Unprotected.as_view()),
     path('post/', views.Comments_Protected.as_view()),
     path('post/<int:pk>', views.Comments_Protected.as_view()),
+    path('put/<int:pk>', views.Comments_Protected.as_view()),
     path('reply/', views.Reply_Protected.as_view()),
     path('reply/<int:pk>', views.Reply_Protected.as_view())
     ]  

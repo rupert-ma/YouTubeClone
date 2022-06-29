@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { googleAPIKeyB } from "../../keys";
+import { googleAPIKeyA } from "../../keys";
 
 const VideoPlayer = ({ vidValue }) => {
     let [videoData, setVideoData]=useState([])
@@ -12,7 +12,7 @@ const VideoPlayer = ({ vidValue }) => {
     async function searchForVid(vidValue) {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=1&type=video&id=${vidValue}&key=${googleAPIKeyB}`
+                `https://www.googleapis.com/youtube/v3/videos?part=snippet&maxResults=1&type=video&id=${vidValue}&key=${googleAPIKeyA}`
             );
             setVideoData(response.data.items[0].snippet);
         } catch (error) {

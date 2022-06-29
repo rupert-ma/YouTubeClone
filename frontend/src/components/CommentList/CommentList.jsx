@@ -8,7 +8,6 @@ import PrivateRoute from "../../utils/PrivateRoute";
 const CommentList = ({ vidValue }) => {
     const [user, token] = useAuth();
     const [comments, setComments] = useState([]);
-    console.log(token);
 
     useEffect(() => {
         getAllComments(vidValue);
@@ -27,7 +26,6 @@ const CommentList = ({ vidValue }) => {
     }
 
     async function createNewComment(comment) {
-        console.log(comment);
         try {
             let response = await axios.post(
                 `http://127.0.0.1:8000/api/ytclone/post/`,
@@ -44,6 +42,45 @@ const CommentList = ({ vidValue }) => {
         }
     }
 
+    async function handleLike(comment, event) {
+        event.preventDefault();
+        comment.likes = comment.likes + 1;
+        try {
+            await axios.put(
+                `http://127.0.0.1:8000/api/ytclone/put/${comment.id}`,
+                comment,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            getAllComments(vidValue);
+        } catch (ex) {
+            console.log("Error in likeComment API Call");
+        }
+    }
+
+    async function handleDislike(comment, event) {
+        event.preventDefault();
+        comment.dislikes = comment.dislikes + 1;
+
+        try {
+            await axios.put(
+                `http://127.0.0.1:8000/api/ytclone/put/${comment.id}`,
+                comment,
+                {
+                    headers: {
+                        Authorization: "Bearer " + token,
+                    },
+                }
+            );
+            getAllComments(vidValue);
+        } catch (ex) {
+            console.log("Error in likeComment API Call");
+        }
+    }
+
     return (
         <div>
             <h3>Comments</h3>
@@ -54,6 +91,7 @@ const CommentList = ({ vidValue }) => {
                         <th>Text</th>
                         <th>Likes</th>
                         <th>Dislikes</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,16 +99,39 @@ const CommentList = ({ vidValue }) => {
                         return (
                             <tr key={index}>
                                 {/* <th>{comment.user_id}</th> */}
-                                <th>{comment.text}</th>
-                                <th>{comment.likes}</th>
-                                <th>{comment.dislikes}</th>
+                                <td>{comment.text}</td>
+                                <td>{comment.likes}</td>
+                                <td>{comment.dislikes}</td>
+                                {user ? (
+                                    <td>
+                                        <button
+                                            className="button"
+                                            value={index}
+                                            onClick={(e) =>
+                                                handleLike(comment, e)
+                                            }
+                                        >
+                                            Like
+                                        </button>
+                                        <button
+                                            className="button"
+                                            value={index}
+                                            onClick={(e) =>
+                                                handleDislike(comment, e)
+                                            }
+                                        >
+                                            Dislike
+                                        </button>
+                                    </td>
+                                ) : (
+                                    <td></td>
+                                )}
                             </tr>
                         );
                     })}
                 </tbody>
             </table>
 
-            {/* <PrivateRoute> */}
             {user ? (
                 <CommentForm
                     vidValue={vidValue}
@@ -79,7 +140,6 @@ const CommentList = ({ vidValue }) => {
             ) : (
                 <p>Login to post a comment</p>
             )}
-            {/* </PrivateRoute> */}
         </div>
     );
 };
