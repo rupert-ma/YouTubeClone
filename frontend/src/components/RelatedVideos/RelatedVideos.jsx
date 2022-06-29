@@ -12,7 +12,7 @@ const RelatedVideos = ({ vidValue }) => {
     }, [vidValue]);
 
     async function getRelatedVideos(vidValue) {
-        console.log(vidValue);
+        // console.log(vidValue);
         try {
             let response = await axios.get(
                 `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyB}`

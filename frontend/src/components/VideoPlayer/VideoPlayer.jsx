@@ -19,8 +19,8 @@ const VideoPlayer = ({ vidValue }) => {
             console.log(error.response.data);
         }
     }
-    console.log(videoData);
-    console.log(videoData);
+    // console.log(videoData);
+    // console.log(videoData);
 
     return (
         <div>

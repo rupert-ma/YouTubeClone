@@ -45,7 +45,7 @@ const HomePage = () => {
                     return (
                         <div key={index}>
                             <a
-                                href={"#"}
+                                href={""}
                                 onClick={() => handleOnClick(result.id.videoId)}
                                 key={index}
                             >
