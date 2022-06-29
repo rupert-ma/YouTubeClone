@@ -8,7 +8,7 @@ import PrivateRoute from "../../utils/PrivateRoute";
 const CommentList = ({ vidValue }) => {
     const [user, token] = useAuth();
     const [comments, setComments] = useState([]);
-    console.log(token)
+    console.log(token);
 
     useEffect(() => {
         getAllComments(vidValue);
@@ -30,13 +30,13 @@ const CommentList = ({ vidValue }) => {
         console.log(comment);
         try {
             let response = await axios.post(
-                `http://127.0.0.1:8000/api/ytclone/post/`, comment,
+                `http://127.0.0.1:8000/api/ytclone/post/`,
+                comment,
                 {
                     headers: {
                         Authorization: "Bearer " + token,
                     },
-                },
-                
+                }
             );
             getAllComments(vidValue);
         } catch (ex) {
@@ -70,12 +70,16 @@ const CommentList = ({ vidValue }) => {
                 </tbody>
             </table>
 
-            <PrivateRoute>
+            {/* <PrivateRoute> */}
+            {user ? (
                 <CommentForm
                     vidValue={vidValue}
                     createNewComment={createNewComment}
                 />
-            </PrivateRoute>
+            ) : (
+                <p>Login to post a comment</p>
+            )}
+            {/* </PrivateRoute> */}
         </div>
     );
 };
