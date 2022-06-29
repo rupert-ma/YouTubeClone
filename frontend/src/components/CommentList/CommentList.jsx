@@ -8,6 +8,7 @@ import PrivateRoute from "../../utils/PrivateRoute";
 const CommentList = ({ vidValue }) => {
     const [user, token] = useAuth();
     const [comments, setComments] = useState([]);
+    console.log(token)
 
     useEffect(() => {
         getAllComments(vidValue);
@@ -26,17 +27,18 @@ const CommentList = ({ vidValue }) => {
     }
 
     async function createNewComment(comment) {
+        console.log(comment);
         try {
             let response = await axios.post(
-                `http://127.0.0.1:8000/api/ytclone/post/`,
+                `http://127.0.0.1:8000/api/ytclone/post/`, comment,
                 {
                     headers: {
                         Authorization: "Bearer " + token,
                     },
                 },
-                comment
+                
             );
-            getAllComments();
+            getAllComments(vidValue);
         } catch (ex) {
             console.log("Error in creatNewComment API Call");
         }

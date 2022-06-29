@@ -8,7 +8,7 @@ import { Routes, Route, useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { googleAPIKeyB } from "../../keys";
 
-const HomePage = () => {
+const SearchPage = () => {
     const [user, token] = useAuth();
     const [videoId, setVideoId] = useState();
     const [searchTerm, setSearchTerm] = useState();
@@ -63,4 +63,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default SearchPage;
