@@ -10,7 +10,7 @@ const SearchBar = ({ searchForVid }) => {
     }
 
     return (
-        <div className="m-2">
+        <div className="m-3">
             <form className="form-group" onSubmit={handleSubmit}>
                 <label className="m-2">Search Bar</label>
                 <input

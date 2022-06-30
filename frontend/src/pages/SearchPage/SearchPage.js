@@ -20,7 +20,7 @@ const SearchPage = () => {
     async function searchForVid(searchTerm) {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=${googleAPIKeyA}`
+                `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=6&q=${searchTerm}&key=${googleAPIKeyB}`
             );
             setSearchResults(response.data.items);
             console.log(searchResults);

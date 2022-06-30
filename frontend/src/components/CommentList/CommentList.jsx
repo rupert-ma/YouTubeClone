@@ -104,7 +104,8 @@ const CommentList = ({ vidValue }) => {
                                 {user ? (
                                     <td>
                                         <button
-                                            className="btn btn-outline-primary btn-sm"
+                                            className="btn btn-outline-primary btn-sm
+                                            m-1"
                                             value={index}
                                             onClick={(e) =>
                                                 handleLike(comment, e)
@@ -113,7 +114,7 @@ const CommentList = ({ vidValue }) => {
                                             Like
                                         </button>
                                         <button
-                                            className="btn btn-outline-danger btn-sm"
+                                            className="btn btn-outline-danger btn-sm m-1"
                                             value={index}
                                             onClick={(e) =>
                                                 handleDislike(comment, e)

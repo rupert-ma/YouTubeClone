@@ -11,12 +11,12 @@ const Navbar = () => {
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary container-fluid">
             <div className="container-fluid">
                     <a className="navbar-brand" href="/">
-                        <Link
+                        {/* <Link
                             to="/"
                             style={{ textDecoration: "none", color: "white" }}
-                        >
+                        > */}
                             <b>M's YouTube Clone</b>
-                        </Link>
+                        {/* </Link> */}
                     </a>
                     <div className="d-flex">
                         {user ? (

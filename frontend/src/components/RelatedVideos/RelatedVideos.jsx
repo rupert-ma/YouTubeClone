@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { googleAPIKeyA } from "../../keys";
+import { googleAPIKeyB } from "../../keys";
 
 const RelatedVideos = ({ vidValue }) => {
     const [relatedVideos, setRelatedVideos] = useState([]);
@@ -14,7 +14,7 @@ const RelatedVideos = ({ vidValue }) => {
     async function getRelatedVideos(vidValue) {
         try {
             let response = await axios.get(
-                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyA}`
+                `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyB}`
             );
             setRelatedVideos(response.data.items);
         } catch (error) {
@@ -27,23 +27,28 @@ const RelatedVideos = ({ vidValue }) => {
     }
 
     return (
-        <div className="m-2">
+        <div className="">
             <h3> Related videos</h3>
-            <div>
+            <div className="d-flex m-1">
                 {relatedVideos.map((result, index) => {
                     return (
-                        <div key={index}>
-                            <a
-                                href={"#"}
-                                onClick={() => handleOnClick(result.id.videoId)}
-                                key={index}
-                            >
-                                <img
+                        <div className=" card border-primary mb-3 m-1" key={index}>
+                            <div className="card-header" >Related Video {index+1}</div>
+                            <div className="card-body" >
+                                <a
+                                    href={""}
+                                    onClick={() =>
+                                        handleOnClick(result.id.videoId)
+                                    }
                                     key={index}
-                                    style={{ margin: 5 }}
-                                    src={`https://i.ytimg.com/vi/${result.id.videoId}/default.jpg`}
-                                />
-                            </a>
+                                >
+                                    <img 
+                                        key={index}
+                                        style={{height:150 }}
+                                        src={`https://i.ytimg.com/vi/${result.id.videoId}/default.jpg`}
+                                    />
+                                </a>
+                            </div>
                         </div>
                     );
                 })}
