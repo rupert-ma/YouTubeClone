@@ -26,18 +26,18 @@ const CommentForm = ({ createNewComment, vidValue }) => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className="row m-2">
+            <form className="form-group m-2" onSubmit={handleSubmit}>
                 <h3>Add a new comment</h3>
                 <div>
-                    <label>Comment</label>
-                    <input
+                    <label className="m-2">Comment</label>
+                    <input className="m-2"
                         type="text"
                         value={text}
                         onChange={(event) => setText(event.target.value)}
                     />
                 </div>
-                <button type="submit" className="button">
+                <button type="submit" className="btn btn-primary">
                     Submit
                 </button>
                 <br />

@@ -23,7 +23,7 @@ function App() {
     return (
         <div>
             <Navbar />
-            <div className="d-flex">
+            <div className="d-flex justify-content-center">
             <Routes>
                 <Route path="/" element={<SearchPage />} />
                 <Route path="/register" element={<RegisterPage />} />
