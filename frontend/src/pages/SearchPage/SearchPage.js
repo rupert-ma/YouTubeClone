@@ -37,10 +37,10 @@ const SearchPage = () => {
 
     return (
         <div className="d-flex row">
-            <div className="h-100">
+            <div className="">
                 <SearchBar searchForVid={searchForVid} />
             </div>
-            <div className="d-flex col">
+            <div className="d-flex">
                 {searchResults.map((result, index) => {
                     return (
                         <div key={index}>
