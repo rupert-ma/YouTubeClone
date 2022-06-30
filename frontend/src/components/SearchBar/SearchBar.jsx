@@ -7,14 +7,14 @@ const SearchBar = ({ searchForVid }) => {
         event.preventDefault(event);
         console.log(searchTerm);
         searchForVid(searchTerm);
-        // setSearchTerm("");
     }
 
     return (
         <div className="m-2">
             <form className="form-group" onSubmit={handleSubmit}>
                 <label className="m-2">Search Bar</label>
-                <input className="m-1 p-1"
+                <input
+                    className="m-1 p-1"
                     type="text"
                     placeholder="Enter a term to search by"
                     value={searchTerm}

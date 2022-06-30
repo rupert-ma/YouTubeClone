@@ -3,11 +3,11 @@ import axios from "axios";
 import { googleAPIKeyA } from "../../keys";
 
 const VideoPlayer = ({ vidValue }) => {
-    let [videoData, setVideoData]=useState([])
+    let [videoData, setVideoData] = useState([]);
 
-    useEffect(()=>{
-        searchForVid(vidValue)
-    }, [vidValue])
+    useEffect(() => {
+        searchForVid(vidValue);
+    }, [vidValue]);
 
     async function searchForVid(vidValue) {
         try {
@@ -19,8 +19,6 @@ const VideoPlayer = ({ vidValue }) => {
             console.log(error.response.data);
         }
     }
-    // console.log(videoData);
-    // console.log(videoData);
 
     return (
         <div>

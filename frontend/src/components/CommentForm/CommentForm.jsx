@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 
 const CommentForm = ({ createNewComment, vidValue }) => {
-    
     const [videoId, setVideoId] = useState(vidValue);
     const [text, setText] = useState("");
     const [likes, setLikes] = useState(0);
@@ -26,12 +25,13 @@ const CommentForm = ({ createNewComment, vidValue }) => {
     }
 
     return (
-        <div className="row m-2">
+        <div className=" m-2">
             <form className="form-group m-2" onSubmit={handleSubmit}>
                 <h3>Add a new comment</h3>
                 <div>
                     <label className="m-2">Comment</label>
-                    <input className="m-2"
+                    <input
+                        className="m-2"
                         type="text"
                         value={text}
                         onChange={(event) => setText(event.target.value)}

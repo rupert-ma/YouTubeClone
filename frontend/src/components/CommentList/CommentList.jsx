@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import CommentForm from "../CommentForm/CommentForm";
-import { Routes, Route } from "react-router-dom";
+// import { Routes, Route } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
-import PrivateRoute from "../../utils/PrivateRoute";
+// import PrivateRoute from "../../utils/PrivateRoute";
 
 const CommentList = ({ vidValue }) => {
     const [user, token] = useAuth();
@@ -19,7 +19,6 @@ const CommentList = ({ vidValue }) => {
                 `http://127.0.0.1:8000/api/ytclone/${vidValue}`
             );
             setComments(response.data);
-            console.log(comments);
         } catch (ex) {
             console.log("Error in getAllSongs API Call!");
         }

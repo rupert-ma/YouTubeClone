@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary container-fluid">
             <div className="container-fluid">
-                    <a className="navbar-brand" href="#">
+                    <a className="navbar-brand" href="/">
                         <Link
                             to="/"
                             style={{ textDecoration: "none", color: "white" }}

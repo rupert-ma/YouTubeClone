@@ -12,7 +12,6 @@ const RelatedVideos = ({ vidValue }) => {
     }, [vidValue]);
 
     async function getRelatedVideos(vidValue) {
-        // console.log(vidValue);
         try {
             let response = await axios.get(
                 `https://www.googleapis.com/youtube/v3/search?relatedToVideoId=${vidValue}&type=video&key=${googleAPIKeyA}`
@@ -24,8 +23,6 @@ const RelatedVideos = ({ vidValue }) => {
     }
 
     function handleOnClick(selectedVidValue) {
-        // console.log(vidValue)
-
         return navigate(`/VideoPage/${selectedVidValue}`);
     }
 
@@ -34,7 +31,6 @@ const RelatedVideos = ({ vidValue }) => {
             <h3> Related videos</h3>
             <div>
                 {relatedVideos.map((result, index) => {
-                    // console.log(result.id)
                     return (
                         <div key={index}>
                             <a

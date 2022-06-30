@@ -9,7 +9,6 @@ import { Link } from "react-router-dom";
 import { googleAPIKeyA } from "../../keys";
 import { googleAPIKeyB } from "../../keys";
 
-
 const SearchPage = () => {
     const [user, token] = useAuth();
     const [videoId, setVideoId] = useState();
@@ -41,8 +40,7 @@ const SearchPage = () => {
             <div className="h-100">
                 <SearchBar searchForVid={searchForVid} />
             </div>
-            <div className="d-flex col" >
-                Search Results
+            <div className="d-flex col">
                 {searchResults.map((result, index) => {
                     return (
                         <div key={index}>
