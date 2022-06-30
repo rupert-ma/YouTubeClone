@@ -1,6 +1,9 @@
 // General Imports
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootswatch/dist/spacelab/bootstrap.min.css'; // Added this :boom:
+
 
 // Pages Imports
 import HomePage from "./pages/HomePage/HomePage";
@@ -20,19 +23,14 @@ function App() {
     return (
         <div>
             <Navbar />
+            <div className="d-flex">
             <Routes>
-                <Route
-                    path="/"
-                    element={
-                        // <PrivateRoute>
-                        <SearchPage />
-                        //</PrivateRoute>
-                    }
-                />
+                <Route path="/" element={<SearchPage />} />
                 <Route path="/register" element={<RegisterPage />} />
                 <Route path="/login" element={<LoginPage />} />
                 <Route path="/VideoPage/:vidValue/" element={<VideoPage />} />
             </Routes>
+            </div>
             <Footer />
         </div>
     );

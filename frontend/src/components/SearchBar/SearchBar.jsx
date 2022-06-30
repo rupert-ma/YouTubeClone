@@ -11,16 +11,16 @@ const SearchBar = ({ searchForVid }) => {
     }
 
     return (
-        <div className="searchbar-container">
-            <form onSubmit={handleSubmit}>
-                <label>Video Search Bar</label>
-                <input
+        <div className="m-2">
+            <form className="form-group" onSubmit={handleSubmit}>
+                <label className="m-2">Search Bar</label>
+                <input className="m-1 p-1"
                     type="text"
                     placeholder="Enter a term to search by"
                     value={searchTerm}
                     onChange={(event) => setSearchTerm(event.target.value)}
                 ></input>
-                <button type="submit" className="button">
+                <button type="submit" className="btn btn-primary">
                     Search
                 </button>
             </form>
