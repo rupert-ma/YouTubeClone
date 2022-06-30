@@ -2,7 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
 // import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootswatch/dist/spacelab/bootstrap.min.css'; // Added this :boom:
+import 'bootswatch/dist/zephyr/bootstrap.min.css'; // Added this :boom:
 
 
 // Pages Imports

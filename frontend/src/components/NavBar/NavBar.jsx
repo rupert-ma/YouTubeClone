@@ -18,10 +18,10 @@ const Navbar = () => {
                             <b>M's YouTube Clone</b>
                         </Link>
                     </a>
-                    <div className="">
+                    <div className="d-flex">
                         {user ? (
                             <div className="d-flex">
-                                <p style={{"color":"white"}}>Hello, {user.username}</p>
+                                <p className="m-2" style={{"color":"white"}}>Hello, {user.username}</p>
                                 <button className="btn btn-secondary my-2 my-sm-0" onClick={logoutUser}>Logout</button>
                             </div>
                         ) : (

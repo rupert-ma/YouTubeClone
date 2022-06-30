@@ -30,8 +30,8 @@ const RelatedVideos = ({ vidValue }) => {
     }
 
     return (
-        <div>
-            <div> Related videos sends to new video page</div>
+        <div className="m-2">
+            <h3> Related videos</h3>
             <div>
                 {relatedVideos.map((result, index) => {
                     // console.log(result.id)

@@ -82,9 +82,9 @@ const CommentList = ({ vidValue }) => {
     }
 
     return (
-        <div>
+        <div className="d-flex row m-2">
             <h3>Comments</h3>
-            <table>
+            <table className="table table-hover">
                 <thead>
                     <tr>
                         {/* <th>User</th> */}
@@ -105,7 +105,7 @@ const CommentList = ({ vidValue }) => {
                                 {user ? (
                                     <td>
                                         <button
-                                            className="button"
+                                            className="btn btn-outline-primary btn-sm"
                                             value={index}
                                             onClick={(e) =>
                                                 handleLike(comment, e)
@@ -114,7 +114,7 @@ const CommentList = ({ vidValue }) => {
                                             Like
                                         </button>
                                         <button
-                                            className="button"
+                                            className="btn btn-outline-danger btn-sm"
                                             value={index}
                                             onClick={(e) =>
                                                 handleDislike(comment, e)

@@ -7,10 +7,21 @@ const VideoPage = () => {
     const { vidValue } = useParams();
 
     return (
-        <div className="d-flex">
-            <VideoPlayer vidValue={vidValue} />
-            <RelatedVideos vidValue={vidValue} />
-            <CommentList vidValue={vidValue} />
+        <div className=" ">
+            <div className="d-flex">
+                <div className="">
+                    <VideoPlayer vidValue={vidValue} />
+                </div>
+                <div className="">
+                    <RelatedVideos vidValue={vidValue} />
+                </div>
+            </div>
+
+            <div className="">
+                <div className="">
+                    <CommentList vidValue={vidValue} />
+                </div>
+            </div>
         </div>
     );
 };
